@@ -38,7 +38,7 @@ export default function HomePage() {
     if (e.target.value !== "") {
       const newData = () => {
         return fullData.filter((item) => {
-          return item.name.toLowerCase().includes(e.target.value.toLowerCase());
+          return item.name.toLowerCase().includes(e.target.value.toLowerCase())||item.company.name.toLowerCase().includes(e.target.value.toLowerCase());
         });
       };
       setApiData(newData());
