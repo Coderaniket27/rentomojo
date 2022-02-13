@@ -24,10 +24,10 @@ export default function Posts() {
   useEffect(() => {
     async function getData() {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
+        `https://jsonplaceholder.typicode.com/posts?userId=${id}`
       );
       let data = await response.json();
-      data = data.filter((post) => post.userId === parseInt(id));
+      // data = data.filter((post) => post.userId === parseInt(id));
       setApiData([data[0], data[1]]);
       setFullData(data);
       setLoading(false);
@@ -109,7 +109,7 @@ export default function Posts() {
                   {row.title}
                 </TableCell>
                 <TableCell align="right">
-                  <Link to={`/post/${row.id}`}> View Post</Link>
+                  <Link to={`/post/${row.id}&${row.userId}`}> View Post</Link>
                 </TableCell>
               </TableRow>
             ))}
